@@ -1,39 +1,46 @@
 let container = document.getElementById("container");
 
-const colors = ['unpainted', 'painted1', 'painted2', 'painted3'];
+const colors = ["unpainted", "painted1", "painted2", "painted3"]; // These are the css classes for each individual color
 
 const resetBox = (reso) => {
   if (!reso) {
     reso = 16;
   }
-  container.innerHTML = '';
+  container.innerHTML = "";
   for (let columns = 0; columns < reso; columns++) {
     let columnbox = document.createElement("div");
-    columnbox.id = `column-${columns}`;
-    columnbox.className = "columnbox";
     for (let rows = 0; rows < reso; rows++) {
       let rowbox = document.createElement("div");
-      rowbox.id = `rowbox-${rows}`;
+
       rowbox.className = "rowbox";
-        rowbox.style.width = `${800 / reso}px`
-        rowbox.style.height = `${800 / reso}px`
+
+      //amount of px each box should be
+      finalRes = 800 / reso;
+      rowbox.style.width = `${finalRes}px`;
+      rowbox.style.height = `${finalRes}px`;
+
+      //hover effects
       rowbox.addEventListener("mouseover", () => {
         rowbox.classList.add("hovercolor");
       });
       rowbox.addEventListener("mouseout", () => {
         rowbox.classList.remove("hovercolor");
       });
-      rowbox.classList.add('lined')
-      
+
+      //adds class for guide lines
+      rowbox.classList.add("lined");
+
+      //color darkness data counter
       rowbox.dataset.currentIndex = 0;
 
-      rowbox.addEventListener('click', () => {
-        let currentIndex = parseInt(rowbox.dataset.currentIndex, 10);
+      //changes color on click
+      rowbox.addEventListener("click", () => {
+        let currentIndex = parseInt(rowbox.dataset.currentIndex);
         rowbox.classList.remove(colors[currentIndex]);
         currentIndex = (currentIndex + 1) % colors.length;
         rowbox.classList.add(colors[currentIndex]);
         rowbox.dataset.currentIndex = currentIndex;
-      })
+      });
 
       columnbox.appendChild(rowbox);
     }
@@ -42,46 +49,43 @@ const resetBox = (reso) => {
   modalBox.style.display = "none";
 };
 
-const modalBox = document.getElementById("modal");
-const makeNew = document.getElementById("makeNew"); // this one opens the menu to create a new one
-const closeBtn = document.getElementById("closeBtn");
-const createNewBtn = document.getElementById("createNewBtn"); // this one confirms the creation of a new one and resets the grid accordingly
-const newReso = document.getElementById("newReso");
-const clearGrid = document.getElementById("clearGrid");
-const toggleLines = document.getElementById("toggleLines");
+const modalBox = document.getElementById("modal"); // modal box
+const closeBtn = document.getElementById("closeBtn"); // close button on modal box
+const makeNew = document.getElementById("makeNew"); // menu for making new grid
+const createNewBtn = document.getElementById("createNewBtn"); // confirm btn on modal box
+const newReso = document.getElementById("newReso"); // input on modal box
+const clearGrid = document.getElementById("clearGrid"); //clear grid btn
+const toggleLines = document.getElementById("toggleLines"); //toggle line button
 
-let resolution = '';
+let resolution = "";
 
 makeNew.onclick = () => {
   modalBox.style.display = "block";
 };
 
 clearGrid.onclick = () => {
-    resetBox(resolution)
-}
+  resetBox(resolution);
+};
 
 closeBtn.onclick = () => {
   modalBox.style.display = "none";
 };
 
+
 toggleLines.onclick = () => {
-    const rowbox = document.querySelectorAll('.rowbox');
-    rowbox.forEach(box => {
-        box.classList.toggle('lined')
-    })
-}
+  const rowbox = document.querySelectorAll(".rowbox");
+  rowbox.forEach((box) => {
+    box.classList.toggle("lined");
+  });
+};
 
 createNewBtn.onclick = () => {
-    if (newReso.value > 64 || newReso.value < 1) {
-        alert('Please specify a value between 1-64!')
-    } else {
-        resolution = newReso.value;
-        resetBox(resolution);
-    }
-}
+  if (newReso.value > 64 || newReso.value < 1) {
+    alert("Please specify a value between 1-64!");
+  } else {
+    resolution = newReso.value;
+    resetBox(resolution);
+  }
+};
 
-
-resetBox();
-
-
-
+resetBox(); //init the box
