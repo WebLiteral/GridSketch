@@ -1,19 +1,28 @@
+body {
+display: flex;
+flex-direction: column;
+align-items: center;
+
+}
 
 
 #container {
     display:flex;
-    height: 100vh;
-    width: 100vh;
+    width: 800px;
+    height: 800px;
+    border: 2px solid green;
+    border-box;
 }
 
-
-
 .rowbox {
-    height: 20px;
-    width: 20px;
+    height: 50px;
+    width: 50px;
+    aspect-ratio: 1;
     border: 0.2px solid rgb(123, 132, 201);
+    box-sizing: border-box;
 }
 
 .hovercolor {
     background-color: rgb(239, 234, 252);
 }
+
