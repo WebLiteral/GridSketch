@@ -1,5 +1,7 @@
 let container = document.getElementById("container");
 
+const colors = ['unpainted', 'painted1', 'painted2', 'painted3'];
+
 const resetBox = (reso) => {
   if (!reso) {
     reso = 16;
@@ -21,7 +23,18 @@ const resetBox = (reso) => {
       rowbox.addEventListener("mouseout", () => {
         rowbox.classList.remove("hovercolor");
       });
-      rowbox.classList.add('gridbox');
+      rowbox.classList.add('lined')
+      
+      rowbox.dataset.currentIndex = 0;
+
+      rowbox.addEventListener('click', () => {
+        let currentIndex = parseInt(rowbox.dataset.currentIndex, 10);
+        rowbox.classList.remove(colors[currentIndex]);
+        currentIndex = (currentIndex + 1) % colors.length;
+        rowbox.classList.add(colors[currentIndex]);
+        rowbox.dataset.currentIndex = currentIndex;
+      })
+
       columnbox.appendChild(rowbox);
     }
     container.appendChild(columnbox);
@@ -35,8 +48,7 @@ const closeBtn = document.getElementById("closeBtn");
 const createNewBtn = document.getElementById("createNewBtn"); // this one confirms the creation of a new one and resets the grid accordingly
 const newReso = document.getElementById("newReso");
 const clearGrid = document.getElementById("clearGrid");
-const gridBox = document.getElementById("gridBox");
-
+const toggleLines = document.getElementById("toggleLines");
 
 let resolution = '';
 
@@ -52,6 +64,12 @@ closeBtn.onclick = () => {
   modalBox.style.display = "none";
 };
 
+toggleLines.onclick = () => {
+    const rowbox = document.querySelectorAll('.rowbox');
+    rowbox.forEach(box => {
+        box.classList.toggle('lined')
+    })
+}
 
 createNewBtn.onclick = () => {
     if (newReso.value > 64 || newReso.value < 1) {

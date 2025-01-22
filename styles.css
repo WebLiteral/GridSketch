@@ -1,51 +1,108 @@
-body {
-display: flex;
-flex-direction: column;
-align-items: center;
-
+@font-face {
+    font-family: 'stitch';
+    src: url(/stitch.otf);
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: 'stitch';
+    font-size: 7rem;
+    font-weight: normal;
+    color: rgb(106, 111, 152);
+}
+
+p {
+    font-family: 'Roboto';
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(211, 214, 241);
+}
 
 #container {
-    display:flex;
-    width: 800px;
-    height: 800px;
-    border: 2px solid green;
-
+  display: flex;
+  width: 800px;
+  height: 800px;
+    border: 3px dashed rgb(106, 111, 152);
+    padding: 7px;
+    border-radius: 3px;
 }
 
 .rowbox {
-    height: 50px;
-    width: 50px;
-    aspect-ratio: 1;
-    border: 0.4px solid rgb(211, 214, 241);
-    box-sizing: border-box;
+  height: 50px;
+  width: 50px;
+  aspect-ratio: 1;
+  box-sizing: border-box;
+  background-color: rgb(252, 252, 255);
 }
 
-.hovercolor {
-    background-color: rgb(239, 234, 252);
+.lined{
+    border: 0.4px solid rgb(211, 214, 241);
 }
 
 #modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    background-color: white;
-    padding: 10px;
-    margin-top: 30%;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  background-color: white;
+  padding: 12px;
+  top: 20rem;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.414);
+}
+
+#modal p {
+    padding: 1rem 0px;
+}
+
+.unpainted {
+  background-color: rgb(251, 244, 255);
 }
 
 .painted1 {
-    background-color: rgb(214, 200, 248);
-    border: 0.4px solid rgb(41, 31, 64);
+  background-color: rgb(224, 212, 252);
+  border: 0.4px solid rgb(224, 212, 252);
 }
 
 .painted2 {
-    background-color: rgb(112, 96, 150);
-    border: 0.4px solid rgb(41, 31, 64);
+  background-color: rgb(177, 156, 224);
+  border: 0.4px solid rgb(177, 156, 224);
 }
 
 .painted3 {
-    background-color: rgb(41, 31, 64);
-    border: 0.4px solid rgb(41, 31, 64);
+  background-color: rgb(112, 96, 150);
+  border: 0.4px solid rgb(112, 96, 150);
+}
+
+.hovercolor {
+  border: 2px solid rgb(21, 0, 255);
+
+}
+
+button {
+    background-color: rgb(106, 111, 152);
+    border: 3px solid rgb(106, 111, 152);
+    padding: 12px;
+    margin: 2px;
+    border-radius: 8px;
+    color: rgb(235, 237, 249);
+    font-weight: bold;
+}
+
+.buttons  {
+    padding: 10px;
+}
+
+button:hover {
+    background-color: white;
+    border: 3px solid rgb(106, 111, 152);
+    color: rgb(106, 111, 152);
 }
