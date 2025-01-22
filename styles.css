@@ -15,6 +15,7 @@ h1 {
     font-size: 7rem;
     font-weight: normal;
     color: rgb(106, 111, 152);
+    padding: 10px;
 }
 
 p {
@@ -26,6 +27,9 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: rgb(211, 214, 241);
+  background-image: url('/bg.png');
+  background-position: center;
+  background-size: 105%;
 }
 
 #container {
@@ -57,6 +61,7 @@ body {
   padding: 12px;
   top: 20rem;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.414);
+  border-radius: 8px;
 }
 
 #modal p {
@@ -83,7 +88,8 @@ body {
 }
 
 .hovercolor {
-  border: 2px solid rgb(21, 0, 255);
+  border: 3px solid rgb(180, 174, 252);
+  border-radius: 10px;
 
 }
 
@@ -98,7 +104,13 @@ button {
 }
 
 .buttons  {
-    padding: 10px;
+    padding: 20px;
+}
+
+input {
+    padding: 12px;
+    border: 3px solid rgb(106, 111, 152);
+    border-radius: 8px;
 }
 
 button:hover {
