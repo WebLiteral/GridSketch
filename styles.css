@@ -11,14 +11,14 @@ align-items: center;
     width: 800px;
     height: 800px;
     border: 2px solid green;
-    border-box;
+
 }
 
 .rowbox {
     height: 50px;
     width: 50px;
     aspect-ratio: 1;
-    border: 0.2px solid rgb(123, 132, 201);
+    border: 0.4px solid rgb(211, 214, 241);
     box-sizing: border-box;
 }
 
@@ -26,3 +26,26 @@ align-items: center;
     background-color: rgb(239, 234, 252);
 }
 
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    background-color: white;
+    padding: 10px;
+    margin-top: 30%;
+}
+
+.painted1 {
+    background-color: rgb(214, 200, 248);
+    border: 0.4px solid rgb(41, 31, 64);
+}
+
+.painted2 {
+    background-color: rgb(112, 96, 150);
+    border: 0.4px solid rgb(41, 31, 64);
+}
+
+.painted3 {
+    background-color: rgb(41, 31, 64);
+    border: 0.4px solid rgb(41, 31, 64);
+}
